@@ -1,0 +1,32 @@
+---
+import Search from "../icons/Search.astro";
+const getProfile = async () => {
+  const data = await fetch("https://api.github.com/users/darckis28");
+  const response = await data.json();
+  console.log(response);
+};
+getProfile();
+---
+
+<header class="header pt-4">
+  <form class="relative mx-auto w-80">
+    <input
+      type="text"
+      class="w-full text-xs bg-background-basic py-3 pl-11 rounded-lg outline-none focus:outline-outline placeholder:text-text-dark font-bold"
+      placeholder="Username"
+    />
+    <span class="absolute top-2 left-2 block">
+      <Search />
+    </span>
+  </form>
+</header>
+<style>
+  .header {
+    background-image: url("../assets/images/hero-image-github-profile.png");
+    width: 100%;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+</style>
